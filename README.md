@@ -18,7 +18,7 @@
 
 本项目包含机器学习与神经网络课程期末考核的两个核心任务：
 - **任务一**：乳腺癌分类（分类任务）- 对比 Neural Network 与 SVM 两种模型
-- **任务二**：回归预测任务 - 使用 Gradient Boosting 进行预测
+- **任务二**：回归预测任务 - 使用 Random Forest 进行预测
 
 ## 环境准备
 
@@ -74,6 +74,7 @@ Project_Root/
 │
 ├── task1_classification.py         # Task 1: Classification (NN vs SVM)
 ├── task2_regression.py             # Task 2: Regression (Gradient Boosting)
+├── task2_regression_RF.py          # Task 2: Regression (Random Forest)
 ├── requirements.txt                # Dependencies
 └── README.md                       # Documentation
 ```
@@ -107,12 +108,13 @@ Project_Root/
 
 **任务目标**：根据给定的特征数据，预测目标连续值
 
-**模型**：Gradient Boosting Regressor
+**模型**：Random Forest Regressor
 
 **超参数搜索**：
-- n_estimators: [100, 200]
-- learning_rate: [0.05, 0.1]
-- max_depth: [3, 4, 5]
+- n_estimators: [100, 200, 300]
+- max_depth: [3, 5, 7]
+- min_samples_split: [5, 10]
+- max_features: ['sqrt', 'log2']
 
 **评估指标**：
 - R² Score
@@ -133,7 +135,11 @@ python task1_classification.py
 ### 运行任务二（回归）
 
 ```bash
+# Gradient Boosting 版本
 python task2_regression.py
+
+# Random Forest 版本
+python task2_regression_RF.py
 ```
 
 ## 可视化输出
